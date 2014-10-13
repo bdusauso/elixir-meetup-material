@@ -3,19 +3,19 @@
 defmodule ReduceList do
 
   def by(list, :sum) do
-    reduce(
+    reduce(list, 0, &(&1 + &2)) 
   end
 
   def by(list, :multiplication) do
-    reduce(
+    reduce(list, 1, &(&1 * &2))
   end
 
   def by(list, :concatenation) do
-    reduce(
+    reduce(list, "", &(&1 <> &2))
   end
 
   defp reduce(list, accu, func) do
-
+    Enum.reduce(list, accu, func)
   end
 
 end

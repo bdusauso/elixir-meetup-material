@@ -9,6 +9,14 @@ defmodule Parentheses do
     count(characters, 0) == 0
   end
 
+  defp count([], acc), do: acc
+
+  defp count([ "(" | tail ], acc), do: count(tail, acc + 1)
+
+  defp count([ ")" | tail ], acc), do: count(tail, acc - 1)
+
+  defp count([ _ | tail ], acc), do: count(tail, acc)
+  
 end
 
 ExUnit.start

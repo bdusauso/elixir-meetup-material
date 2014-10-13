@@ -9,11 +9,21 @@
 defmodule Parallel do
 
   def map(enumerable, func) do
+    enumerable  
+      |> Enum.map(&(pmap(self, func, &1))) 
+      |> Enum.map(&(pres(&1)))
   end
 
+  defp pmap(pid, func, val) do
+    spawn(fn -> send pid, {self, func.(val)} end)
+  end
+
+  defp pres(pid) do
+    receive do
+      {^pid, value} -> value
+    end
+  end
 end
-
-
 
 ExUnit.start
 

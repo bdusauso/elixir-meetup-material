@@ -5,7 +5,10 @@
 # Otherwise return the third argument.
 
 fizz_buzz = fn
-
+  0, 0, _ -> "FizzBuzz"
+  0, _, _ -> "Fizz"
+  _, 0, _ -> "Buzz"
+  _, _, c -> c
 end
 
 IO.inspect fizz_buzz.(0, 0, 1) #=> FizzBuzz
@@ -22,7 +25,7 @@ IO.inspect fizz_buzz.(42, 12, 11) #=> 11
 # (Yes, it’s a FizzBuzz solution with no conditional logic).
 
 fizz_buzz_without_if = fn n ->
-
+  fizz_buzz.(rem(n, 3), rem(n, 5), n)
 end
 
 IO.inspect fizz_buzz_without_if.(10)

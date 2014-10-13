@@ -6,7 +6,7 @@
 defmodule Mailbox do
 
   def flush() do
-
+    
   end
 
 

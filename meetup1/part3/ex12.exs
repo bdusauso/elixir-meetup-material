@@ -14,7 +14,9 @@ defmodule DaveThomas do
 
   def encode(list), do: _encode(list, [])
 
+  defp _encode([], acc), do: Enum.reverse(acc)
 
+  defp _encode([head | tail], acc) when head == 
 end
 
 ExUnit.start

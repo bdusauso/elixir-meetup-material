@@ -6,7 +6,9 @@
 # String (binary) concatentation:   "str1" <> "str2"
 
 prefix = fn pref ->
-
+  fn name ->
+    "#{pref} #{name}"
+  end 
 end
 
 mrs = prefix.("Mrs")

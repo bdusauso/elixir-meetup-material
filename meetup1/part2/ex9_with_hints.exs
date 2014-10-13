@@ -14,6 +14,11 @@ defmodule Parentheses do
 
   defp count([]), do: 0
 
+  defp count(["(" | tail]), do: count(tail) + 1
+
+  defp count([")" | tail]), do: count(tail) - 1
+
+  defp count([ _ | tail]), do: count(tail)
 
 end
 

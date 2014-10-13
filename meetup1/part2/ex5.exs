@@ -3,15 +3,15 @@
 
 # – Get the value of an operating system environment variable. (PATH for instance)
 
-IO.inspect
+IO.inspect System.get_env("PATH")
 
 # – Return the extension component of a file name (so return .exs if given "dave/test.exs")
 
-IO.inspect Foo.foo("dave/test.exs")
+IO.inspect Path.extname("dave/test.exs")
 
 # – Return the current working directory of the process.
 
-IO.inspect
+IO.inspect System.cwd
 
 # – Find a module for keyword lists. Find a function which would help
 # you write code for  merging
@@ -20,4 +20,4 @@ IO.inspect
 # multiplication of  the  values in the two source lists
 
 
-IO.inspect
+IO.inspect Keyword.merge([a: 2], [a: 3], fn (_, b, c) -> b * c end)
