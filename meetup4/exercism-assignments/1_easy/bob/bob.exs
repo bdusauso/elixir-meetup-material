@@ -10,13 +10,8 @@ defmodule Teenager do
 
 
   def hey(input) do
-
-
-
     cond do
-
       String.replace(input, " ", "") == "" -> "Fine. Be that way!"
-
       String.upcase(input) == input -> "Woah, chill out!"
       String.last(input)   == "?"   -> "Sure."
       String.last(input)   == "!"   -> @whatever
