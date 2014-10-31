@@ -9,13 +9,10 @@ defmodule Binary do
     string
       |> String.reverse
       |> String.codepoints
-      |> _to_decimal
+      |> Enum.map(&String.to_integer/1)
+      |> Enum.with_index
+      |> Enum.map(fn {bin, power} -> bin * :math.pow(2, power) end)
+      |> Enum.sum
+      |> round
   end
-
-  defp _to_decimal(codepoints) do
-    add_to_sum = fn (bin, {sum, exp}) -> {sum + (exp * parse_bin(bin)), exp * 2} end
-    Enum.reduce(codepoints, {0, 1}, add_to_sum) |> elem 0
-  end
-
-  defp parse_bin(bin), do: Integer.parse(bin) |> elem(0)
 end
